@@ -57,12 +57,15 @@ class StudentManager:
 
         if student:
             average = student.calculate_average()
+
             status = "Pass" if average >= 50 else "Fail"
 
             report = ReportCard(student_id, average, status)
+
             student.set_report_card(report)
 
             print(report.display_info())
+
         else:
             print("Student not found.")
 
@@ -75,3 +78,13 @@ class StudentManager:
         """Export report cards to CSV."""
         export_reports_to_csv(self.students)
         print("Reports exported to CSV.")
+
+    def passing_students_generator(self):
+        """Generate students with passing average."""
+
+        for student in self.students.values():
+
+            average = student.calculate_average()
+
+            if average >= 50:
+                yield student

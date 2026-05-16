@@ -1,9 +1,32 @@
 """Main module for Student Database System."""
 
 from services.student_manager import StudentManager
+from utils.decorators import log_action
+from utils.validator import validate_name
 
 
 manager = StudentManager()
+
+
+@log_action
+def add_student_menu():
+    """Handle adding a student from menu."""
+
+    try:
+        student_id = int(input("Enter student ID: "))
+        name = input("Enter student name: ").strip()
+        age = int(input("Enter student age: "))
+
+        if not validate_name(name):
+            print("Invalid name. Use only letters and spaces.")
+            return
+
+        manager.add_student(student_id, name, age)
+
+        print("Student added successfully!")
+
+    except ValueError:
+        print("Invalid input.")
 
 
 def main_menu():
@@ -22,26 +45,18 @@ def main_menu():
 6. Generate Report
 7. Save Data to JSON
 8. Export Reports to CSV
-9. Exit
+9. Show Passing Students
+10. Exit
 """)
 
         choice = input("Choose option: ").strip()
 
         if choice == "1":
 
-            try:
-                student_id = int(input("Enter student ID: "))
-                name = input("Enter student name: ")
-                age = int(input("Enter student age: "))
-
-                manager.add_student(student_id, name, age)
-
-                print("Student added successfully!")
-
-            except ValueError:
-                print("Invalid input.")
+            add_student_menu()
 
         elif choice == "2":
+
             manager.show_students()
 
         elif choice == "3":
@@ -96,12 +111,23 @@ def main_menu():
                 print("Invalid ID.")
 
         elif choice == "7":
+
             manager.save_data()
 
         elif choice == "8":
+
             manager.export_reports()
 
         elif choice == "9":
+
+            print("\n--- Passing Students ---")
+
+            for student in manager.passing_students_generator():
+
+                print(student.display_info())
+
+        elif choice == "10":
+
             print("Exiting program...")
             break
 
