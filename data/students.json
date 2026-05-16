@@ -1,0 +1,11 @@
+{
+    "1": {
+        "id": 1,
+        "name": "Ali",
+        "age": 19,
+        "grades": {
+            "Math": 90.0
+        },
+        "attendance": []
+    }
+}

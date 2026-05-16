@@ -8,6 +8,7 @@ manager = StudentManager()
 
 def main_menu():
     """Run the main menu."""
+
     while True:
 
         print("""
@@ -19,7 +20,9 @@ def main_menu():
 4. Add Grade
 5. Mark Attendance
 6. Generate Report
-7. Exit
+7. Save Data to JSON
+8. Export Reports to CSV
+9. Exit
 """)
 
         choice = input("Choose option: ").strip()
@@ -93,6 +96,12 @@ def main_menu():
                 print("Invalid ID.")
 
         elif choice == "7":
+            manager.save_data()
+
+        elif choice == "8":
+            manager.export_reports()
+
+        elif choice == "9":
             print("Exiting program...")
             break
 

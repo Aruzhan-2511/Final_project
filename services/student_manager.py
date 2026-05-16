@@ -3,6 +3,7 @@
 from models.student import Student
 from models.attendance import Attendance
 from models.report_card import ReportCard
+from utils.file_handler import save_students_to_json, export_reports_to_csv
 
 
 class StudentManager:
@@ -56,14 +57,21 @@ class StudentManager:
 
         if student:
             average = student.calculate_average()
-
             status = "Pass" if average >= 50 else "Fail"
 
             report = ReportCard(student_id, average, status)
-
             student.set_report_card(report)
 
             print(report.display_info())
-
         else:
             print("Student not found.")
+
+    def save_data(self):
+        """Save all students to JSON."""
+        save_students_to_json(self.students)
+        print("Student data saved to JSON.")
+
+    def export_reports(self):
+        """Export report cards to CSV."""
+        export_reports_to_csv(self.students)
+        print("Reports exported to CSV.")
