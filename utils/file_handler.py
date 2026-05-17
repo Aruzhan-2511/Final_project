@@ -52,3 +52,24 @@ def export_reports_to_csv(students, filename="data/reports.csv"):
                     student.report_card.average,
                     student.report_card.status
                 ])
+
+
+def export_attendance_to_csv(students, filename="data/attendance.csv"):
+    """Export attendance records to CSV file."""
+    ensure_data_folder()
+
+    with open(filename, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+
+        writer.writerow(["Student ID", "Name", "Date", "Status"])
+
+        for student in students.values():
+            for record in student.attendance:
+                status_text = "Present" if record.status else "Absent"
+
+                writer.writerow([
+                    student.person_id,
+                    student.name,
+                    record.date,
+                    status_text
+                ]) 

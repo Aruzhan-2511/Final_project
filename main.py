@@ -45,8 +45,9 @@ def main_menu():
 6. Generate Report
 7. Save Data to JSON
 8. Export Reports to CSV
-9. Show Passing Students
-10. Exit
+9. Export Attendance to CSV
+10. Show Passing Students
+11. Exit
 """)
 
         choice = input("Choose option: ").strip()
@@ -120,13 +121,17 @@ def main_menu():
 
         elif choice == "9":
 
+            manager.export_attendance()
+
+        elif choice == "10":
+
             print("\n--- Passing Students ---")
 
             for student in manager.passing_students_generator():
 
                 print(student.display_info())
 
-        elif choice == "10":
+        elif choice == "11":
 
             print("Exiting program...")
             break
