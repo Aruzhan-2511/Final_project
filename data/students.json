@@ -6,6 +6,39 @@
         "grades": {
             "Math": 90.0
         },
-        "attendance": []
+        "attendance": [
+            {
+                "date": "2026-05-17",
+                "status": true
+            }
+        ]
+    },
+    "2": {
+        "id": 2,
+        "name": "Aruzhan",
+        "age": 18,
+        "grades": {
+            "Sociology": 85.0
+        },
+        "attendance": [
+            {
+                "date": "2026-05-17",
+                "status": true
+            }
+        ]
+    },
+    "3": {
+        "id": 3,
+        "name": "Albina",
+        "age": 18,
+        "grades": {
+            "Cultural studies": 95.0
+        },
+        "attendance": [
+            {
+                "date": "2026-05-17",
+                "status": false
+            }
+        ]
     }
 }
