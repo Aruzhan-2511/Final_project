@@ -18,7 +18,7 @@ class TestStudentManager(unittest.TestCase):
 
         self.manager.add_student(
             1,
-            "Bob",
+            "Ali",
             19
         )
 
@@ -32,7 +32,7 @@ class TestStudentManager(unittest.TestCase):
 
         self.manager.add_student(
             1,
-            "Bob",
+            "Ali",
             19
         )
 
@@ -45,7 +45,7 @@ class TestStudentManager(unittest.TestCase):
 
         self.manager.add_student(
             1,
-            "Bob",
+            "Ali",
             19
         )
 
@@ -67,7 +67,7 @@ class TestStudentManager(unittest.TestCase):
 
         self.manager.add_student(
             1,
-            "Bob",
+            "Ali",
             19
         )
 
@@ -91,7 +91,7 @@ class TestStudentManager(unittest.TestCase):
 
         self.manager.add_student(
             1,
-            "Bob",
+            "Ali",
             19
         )
 
